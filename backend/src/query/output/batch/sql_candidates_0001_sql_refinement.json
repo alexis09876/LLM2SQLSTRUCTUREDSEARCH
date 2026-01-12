@@ -1,0 +1,5 @@
+{
+  "intent": "Calculate the ratio of customers who pay in EUR to those who pay in CZK",
+  "final_sql": "SELECT COUNT(*) FILTER (WHERE Currency = 'EUR')::float / NULLIF(COUNT(*) FILTER (WHERE Currency = 'CZK'), 0) AS ratio FROM customers",
+  "reason": "The original SQL candidates used 'payment_currency', but the search report indicates that the correct column name is 'Currency' in the 'customers' table. Therefore, I modified the best candidate to use 'Currency' instead of 'payment_currency' to ensure it aligns with the schema."
+}

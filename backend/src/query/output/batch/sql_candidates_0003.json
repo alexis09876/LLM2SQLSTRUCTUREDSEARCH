@@ -1,0 +1,66 @@
+{
+  "intent": "Calculate the difference in annual average consumption for customers with the least consumption in CZK for 2013 across SME, LAM, and KAM categories.",
+  "candidates": [
+    {
+      "sql": "SELECT 'SME vs LAM' AS comparison, AVG(s.consumption) - AVG(l.consumption) AS consumption_difference FROM SME_Customers s JOIN LAM_Customers l ON s.customer_id = l.customer_id WHERE s.year = 2013 AND l.year = 2013 AND s.consumption = (SELECT MIN(consumption) FROM SME_Customers WHERE year = 2013) AND l.consumption = (SELECT MIN(consumption) FROM LAM_Customers WHERE year = 2013)",
+      "tables": [
+        "SME_Customers",
+        "LAM_Customers"
+      ],
+      "columns": [
+        "SME_Customers.consumption",
+        "LAM_Customers.consumption"
+      ],
+      "column_relationships": [
+        {
+          "left": "SME_Customers.customer_id",
+          "right": "LAM_Customers.customer_id",
+          "relation": "equals",
+          "context": "join",
+          "note": "Joining on customer_id to compare consumption"
+        }
+      ]
+    },
+    {
+      "sql": "SELECT 'LAM vs KAM' AS comparison, AVG(l.consumption) - AVG(k.consumption) AS consumption_difference FROM LAM_Customers l JOIN KAM_Customers k ON l.customer_id = k.customer_id WHERE l.year = 2013 AND k.year = 2013 AND l.consumption = (SELECT MIN(consumption) FROM LAM_Customers WHERE year = 2013) AND k.consumption = (SELECT MIN(consumption) FROM KAM_Customers WHERE year = 2013)",
+      "tables": [
+        "LAM_Customers",
+        "KAM_Customers"
+      ],
+      "columns": [
+        "LAM_Customers.consumption",
+        "KAM_Customers.consumption"
+      ],
+      "column_relationships": [
+        {
+          "left": "LAM_Customers.customer_id",
+          "right": "KAM_Customers.customer_id",
+          "relation": "equals",
+          "context": "join",
+          "note": "Joining on customer_id to compare consumption"
+        }
+      ]
+    },
+    {
+      "sql": "SELECT 'KAM vs SME' AS comparison, AVG(k.consumption) - AVG(s.consumption) AS consumption_difference FROM KAM_Customers k JOIN SME_Customers s ON k.customer_id = s.customer_id WHERE k.year = 2013 AND s.year = 2013 AND k.consumption = (SELECT MIN(consumption) FROM KAM_Customers WHERE year = 2013) AND s.consumption = (SELECT MIN(consumption) FROM SME_Customers WHERE year = 2013)",
+      "tables": [
+        "KAM_Customers",
+        "SME_Customers"
+      ],
+      "columns": [
+        "KAM_Customers.consumption",
+        "SME_Customers.consumption"
+      ],
+      "column_relationships": [
+        {
+          "left": "KAM_Customers.customer_id",
+          "right": "SME_Customers.customer_id",
+          "relation": "equals",
+          "context": "join",
+          "note": "Joining on customer_id to compare consumption"
+        }
+      ]
+    }
+  ],
+  "notes": "Assumes customer_id is the common key across customer categories. Consumption is measured in CZK for the year 2013."
+}

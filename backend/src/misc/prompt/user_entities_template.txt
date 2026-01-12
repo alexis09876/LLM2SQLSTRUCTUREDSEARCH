@@ -1,0 +1,6 @@
+USER QUERY:
+{query}
+
+TASK:
+Extract ALL possible table and column entities mentioned or implied in the query.
+Return STRICT JSON with keys: "nodes" and "notes".

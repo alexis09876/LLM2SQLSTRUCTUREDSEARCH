@@ -1,0 +1,11 @@
+Natural-language query:
+{query}
+
+Please:
+1. Interpret the intent.
+2. Generate 2–4 MOST LIKELY ANSI-SQL statements that could fulfill this intent.
+3. For EACH candidate, list:
+   - tables (unique),
+   - columns (unique, fully-qualified as <Table.Column>),
+   - column_relationships (only column↔column links across tables as specified).
+4. Return ONLY the STRICT JSON object matching the schema and rules from the system message.

@@ -1,0 +1,77 @@
+{
+  "intent": "Calculate the ratio of customers who pay in EUR to those who pay in CZK",
+  "table_matches": {
+    "customers": [
+      {
+        "db_id": "debit_card_specializing",
+        "table": "customers",
+        "score": 0.7903319396975055,
+        "score_prior": 1.03,
+        "score_col_ev": 0.6305532328291759
+      },
+      {
+        "db_id": "financial",
+        "table": "client",
+        "score": 0.6598505366088315,
+        "score_prior": 0.7037964922783151,
+        "score_col_ev": 0.6305532328291759
+      },
+      {
+        "db_id": "codebase_community",
+        "table": "users",
+        "score": 0.6511927851156308,
+        "score_prior": 0.6821521135453132,
+        "score_col_ev": 0.6305532328291759
+      }
+    ]
+  },
+  "column_matches": {
+    "customers.payment_currency": [
+      {
+        "db_id": "financial",
+        "table": "loan",
+        "column": "payments",
+        "score": 0.6305532328291759
+      },
+      {
+        "db_id": "debit_card_specializing",
+        "table": "customers",
+        "column": "Currency",
+        "score": 0.5240407994088931
+      },
+      {
+        "db_id": "financial",
+        "table": "card",
+        "column": "card_id",
+        "score": 0.4916589246901998
+      }
+    ]
+  },
+  "relation_checks": [],
+  "best_table_combinations": [
+    {
+      "mapping": {
+        "customers": "customers"
+      },
+      "score": 0.790332,
+      "mean_table_score": 0.790332,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "customers": "client"
+      },
+      "score": 0.659851,
+      "mean_table_score": 0.659851,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "customers": "users"
+      },
+      "score": 0.651193,
+      "mean_table_score": 0.651193,
+      "mean_edge_score": 0.0
+    }
+  ]
+}

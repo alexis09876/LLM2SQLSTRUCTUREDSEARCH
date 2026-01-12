@@ -1,0 +1,47 @@
+{
+  "intent": "Identify the month with the highest gas consumption for SME customers in 2013.",
+  "candidates": [
+    {
+      "sql": "SELECT MONTH(gas_consumption.date) AS peak_month, SUM(gas_consumption.amount) AS total_consumption FROM gas_consumption JOIN customers ON gas_consumption.customer_id = customers.id WHERE customers.type = 'SME' AND YEAR(gas_consumption.date) = 2013 GROUP BY MONTH(gas_consumption.date) ORDER BY total_consumption DESC LIMIT 1;",
+      "tables": [
+        "gas_consumption",
+        "customers"
+      ],
+      "columns": [
+        "gas_consumption.date",
+        "gas_consumption.amount",
+        "customers.type"
+      ],
+      "column_relationships": [
+        {
+          "left": "gas_consumption.customer_id",
+          "right": "customers.id",
+          "relation": "equals",
+          "context": "join",
+          "note": "Joining gas consumption records with customer details."
+        }
+      ]
+    },
+    {
+      "sql": "SELECT MONTH(gas_consumption.date) AS peak_month FROM gas_consumption WHERE customer_id IN (SELECT id FROM customers WHERE type = 'SME') AND YEAR(gas_consumption.date) = 2013 GROUP BY MONTH(gas_consumption.date) ORDER BY SUM(amount) DESC LIMIT 1;",
+      "tables": [
+        "gas_consumption",
+        "customers"
+      ],
+      "columns": [
+        "gas_consumption.date",
+        "customers.type"
+      ],
+      "column_relationships": [
+        {
+          "left": "gas_consumption.customer_id",
+          "right": "customers.id",
+          "relation": "equals",
+          "context": "subquery",
+          "note": "Filtering gas consumption by SME customers using a subquery."
+        }
+      ]
+    }
+  ],
+  "notes": "Assumes 'gas_consumption' table has 'customer_id' and 'amount' columns, and 'customers' table has 'id' and 'type' columns. Year extraction is based on standard SQL functions."
+}

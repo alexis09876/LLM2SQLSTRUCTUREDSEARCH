@@ -1,0 +1,51 @@
+# =========================
+# Python / environment
+# =========================
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.env
+
+# =========================
+# OS / IDE
+# =========================
+.DS_Store
+.vscode/
+.idea/
+*.iml
+
+# =========================
+# Build / test / cache
+# =========================
+.mypy_cache/
+.pytest_cache/
+.coverage
+htmlcov/
+.cache
+*.log
+tmp/
+*.bak
+*.swp
+*~
+
+# =========================
+# Large datasets (DO NOT COMMIT)
+# =========================
+
+# MiniDev raw databases (huge files)
+data/raw/data_minidev/MINIDEV/
+data/raw/data_minidev/MINIDEV_mysql/
+data/raw/data_minidev/MINIDEV_postgresql/
+
+# Spider2 / Spider2-lite datasets
+data/raw/spider2-lite/
+data/raw/spider2/
+
+# =========================
+# Optional generated outputs
+# =========================
+# Uncomment if outputs grow too large
+# backend/src/query/output/
+# backend/src/embedding/output/

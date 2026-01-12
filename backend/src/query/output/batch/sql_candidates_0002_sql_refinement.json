@@ -1,0 +1,5 @@
+{
+  "intent": "Identify the month with the highest gas consumption for SME customers in 2013.",
+  "final_sql": "SELECT MONTH(expense.date) AS peak_month, SUM(expense.amount) AS total_consumption FROM expense JOIN customers ON expense.customer_id = customers.id WHERE customers.type = 'SME' AND YEAR(expense.date) = 2013 GROUP BY MONTH(expense.date) ORDER BY total_consumption DESC LIMIT 1;",
+  "reason": "The original SQL candidates referenced the 'gas_consumption' table, but the search report indicates that the correct table name is 'expense' for gas consumption data. Therefore, the SQL was modified to use 'expense' instead of 'gas_consumption' to align with the schema evidence."
+}

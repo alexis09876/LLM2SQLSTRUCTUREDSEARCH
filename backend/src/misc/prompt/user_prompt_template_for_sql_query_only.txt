@@ -1,0 +1,14 @@
+TASK:
+Generate one best SQL for the question below. Avoid trivial SQL. No SELECT *. Use ANSI-compatible syntax where possible.
+
+INPUT:
+{user_query}
+
+OUTPUT (STRICT JSON only):
+{{
+  "sql": "SELECT ...",
+  "tables_used": ["..."],
+  "columns_used": [{{"table":"...", "name":"..."}}],
+  "join_path": [{{"left_table":"...","right_table":"...","on":"... = ..."}}],
+  "notes": "brief mapping/explanation"
+}}

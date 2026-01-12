@@ -1,0 +1,9 @@
+USER QUERY:
+{query}
+
+CANDIDATE NODES:
+{nodes_json}
+
+TASK:
+Infer ALL possible relationships among these nodes according to the query.
+Return STRICT JSON with keys: "edges" and "notes".

@@ -1,0 +1,212 @@
+{
+  "intent": "Identify the month with the highest gas consumption for SME customers in 2013.",
+  "table_matches": {
+    "customers": [
+      {
+        "db_id": "debit_card_specializing",
+        "table": "customers",
+        "score": 1.0173343855256192,
+        "score_prior": 1.03,
+        "score_col_ev": 1.0088906425426987
+      },
+      {
+        "db_id": "financial",
+        "table": "client",
+        "score": 0.8868529824369451,
+        "score_prior": 0.7037964922783151,
+        "score_col_ev": 1.0088906425426987
+      },
+      {
+        "db_id": "codebase_community",
+        "table": "users",
+        "score": 0.8781952309437444,
+        "score_prior": 0.6821521135453132,
+        "score_col_ev": 1.0088906425426987
+      }
+    ],
+    "gas_consumption": [
+      {
+        "db_id": "debit_card_specializing",
+        "table": "gasstations",
+        "score": 0.7794526116807563,
+        "score_prior": 0.41863291198285046,
+        "score_col_ev": 1.0199990781460269
+      },
+      {
+        "db_id": "student_club",
+        "table": "expense",
+        "score": 0.7462170924796212,
+        "score_prior": 0.3355441139800127,
+        "score_col_ev": 1.0199990781460269
+      },
+      {
+        "db_id": "student_club",
+        "table": "budget",
+        "score": 0.7389104778698337,
+        "score_prior": 0.3172775774555439,
+        "score_col_ev": 1.0199990781460269
+      }
+    ]
+  },
+  "column_matches": {
+    "customers.type": [
+      {
+        "db_id": "financial",
+        "table": "card",
+        "column": "type",
+        "score": 1.0088906425426987
+      },
+      {
+        "db_id": "financial",
+        "table": "disp",
+        "column": "type",
+        "score": 1.0088906425426987
+      },
+      {
+        "db_id": "financial",
+        "table": "trans",
+        "column": "type",
+        "score": 1.0088906425426987
+      }
+    ],
+    "gas_consumption.amount": [
+      {
+        "db_id": "financial",
+        "table": "loan",
+        "column": "amount",
+        "score": 1.0199990072573564
+      },
+      {
+        "db_id": "financial",
+        "table": "order",
+        "column": "amount",
+        "score": 1.0199990072573564
+      },
+      {
+        "db_id": "financial",
+        "table": "trans",
+        "column": "amount",
+        "score": 1.0199990072573564
+      }
+    ],
+    "gas_consumption.date": [
+      {
+        "db_id": "financial",
+        "table": "account",
+        "column": "date",
+        "score": 1.0199991017755838
+      },
+      {
+        "db_id": "financial",
+        "table": "loan",
+        "column": "date",
+        "score": 1.0199991017755838
+      },
+      {
+        "db_id": "financial",
+        "table": "trans",
+        "column": "date",
+        "score": 1.0199991017755838
+      }
+    ]
+  },
+  "relation_checks": [
+    {
+      "left": "gas_consumption.customer_id",
+      "right": "customers.id",
+      "exact_hit": false,
+      "cosine": 0.0,
+      "passed": false
+    },
+    {
+      "left": "gas_consumption.customer_id",
+      "right": "customers.id",
+      "exact_hit": false,
+      "cosine": 0.0,
+      "passed": false
+    }
+  ],
+  "best_table_combinations": [
+    {
+      "mapping": {
+        "customers": "customers",
+        "gas_consumption": "gasstations"
+      },
+      "score": 0.898393,
+      "mean_table_score": 0.898393,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "customers": "customers",
+        "gas_consumption": "expense"
+      },
+      "score": 0.881776,
+      "mean_table_score": 0.881776,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "customers": "customers",
+        "gas_consumption": "budget"
+      },
+      "score": 0.878122,
+      "mean_table_score": 0.878122,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "customers": "client",
+        "gas_consumption": "gasstations"
+      },
+      "score": 0.833153,
+      "mean_table_score": 0.833153,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "customers": "users",
+        "gas_consumption": "gasstations"
+      },
+      "score": 0.828824,
+      "mean_table_score": 0.828824,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "customers": "client",
+        "gas_consumption": "expense"
+      },
+      "score": 0.816535,
+      "mean_table_score": 0.816535,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "customers": "client",
+        "gas_consumption": "budget"
+      },
+      "score": 0.812882,
+      "mean_table_score": 0.812882,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "customers": "users",
+        "gas_consumption": "expense"
+      },
+      "score": 0.812206,
+      "mean_table_score": 0.812206,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "customers": "users",
+        "gas_consumption": "budget"
+      },
+      "score": 0.808553,
+      "mean_table_score": 0.808553,
+      "mean_edge_score": 0.0
+    }
+  ]
+}

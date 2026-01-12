@@ -1,0 +1,15 @@
+Intent
+{user_query}
+
+Original SQL candidates
+{original_sql_json}
+
+Search report
+{search_report_json}
+
+Instruction:
+Based on the evidence in the search report, determine whether any of the candidates must be adjusted to better fit the intent and schema.
+If adjustments are needed, return the corrected SQL and explain why.
+If no changes are needed, return the best candidate and explain why.
+
+Return STRICT JSON only, in the exact format described.

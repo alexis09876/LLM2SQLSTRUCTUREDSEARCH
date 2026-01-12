@@ -1,0 +1,59 @@
+You are an evaluator comparing two SQL generation modes:
+(A) Query-only: The LLM generates SQL based only on the natural-language query.
+(B) With-payload: The LLM generates SQL based on the natural-language query plus the candidate payload (tables, columns, allowed joins).
+
+TASK:
+Given pairs of outputs from (A) and (B), evaluate them across the following criteria:
+
+1. **JSON validity**  
+   - Is the output a strict, parseable JSON object?  
+   - Assign True/False.
+
+2. **Table validity**  
+   - Are all tables used in the SQL present in candidate_payload.candidate_tables?  
+   - Assign True/False and list any invalid tables.
+
+3. **Column validity**  
+   - Are all columns used in the SQL valid within their parent tables from candidate_payload?  
+   - Assign True/False and list any invalid columns.
+
+4. **Join validity**  
+   - If multiple tables are used, are the JOIN conditions consistent with candidate_payload.allowed_joins?  
+   - Assign True/False and note any issues (missing ON clause, Cartesian product, or disallowed join).
+
+5. **Executability (optional if a live DB is available)**  
+   - Would the SQL likely execute without schema errors?  
+   - Assign True/False.
+
+6. **Overall usability**  
+   - Provide a short judgment (1–2 sentences) about which version (A or B) is more usable and why, focusing on schema alignment and correctness rather than semantic perfection.
+
+OUTPUT FORMAT (STRICT JSON):
+{
+  "query": "<natural language query>",
+  "evaluation": {
+    "query_only": {
+      "json_valid": true/false,
+      "tables_valid": true/false,
+      "invalid_tables": [],
+      "columns_valid": true/false,
+      "invalid_columns": [],
+      "joins_valid": true/false,
+      "executable": true/false
+    },
+    "with_payload": {
+      "json_valid": true/false,
+      "tables_valid": true/false,
+      "invalid_tables": [],
+      "columns_valid": true/false,
+      "invalid_columns": [],
+      "joins_valid": true/false,
+      "executable": true/false
+    }
+  },
+  "summary": "One or two sentences comparing (A) vs (B)."
+}
+
+NOTES:
+- Do not evaluate semantic accuracy against a ground-truth SQL, only schema consistency and usability.
+- Always produce STRICT JSON as specified above.

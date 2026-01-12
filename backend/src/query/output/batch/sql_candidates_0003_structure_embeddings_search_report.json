@@ -1,0 +1,261 @@
+{
+  "intent": "Calculate the difference in annual average consumption for customers with the least consumption in CZK for 2013 across SME, LAM, and KAM categories.",
+  "table_matches": {
+    "KAM_Customers": [
+      {
+        "db_id": "debit_card_specializing",
+        "table": "customers",
+        "score": 0.7683958118497209,
+        "score_prior": 0.5015305485575406,
+        "score_col_ev": 0.9463059873778411
+      },
+      {
+        "db_id": "financial",
+        "table": "client",
+        "score": 0.7196628339193819,
+        "score_prior": 0.3796981037316932,
+        "score_col_ev": 0.9463059873778411
+      },
+      {
+        "db_id": "european_football_2",
+        "table": "Team",
+        "score": 0.7069234072929922,
+        "score_prior": 0.34784953716571887,
+        "score_col_ev": 0.9463059873778411
+      }
+    ],
+    "LAM_Customers": [
+      {
+        "db_id": "debit_card_specializing",
+        "table": "customers",
+        "score": 0.7552044570044691,
+        "score_prior": 0.46855216144441114,
+        "score_col_ev": 0.9463059873778411
+      },
+      {
+        "db_id": "financial",
+        "table": "client",
+        "score": 0.718336324677098,
+        "score_prior": 0.37638183062598335,
+        "score_col_ev": 0.9463059873778411
+      },
+      {
+        "db_id": "european_football_2",
+        "table": "Team",
+        "score": 0.7110106624525021,
+        "score_prior": 0.35806767506449383,
+        "score_col_ev": 0.9463059873778411
+      }
+    ],
+    "SME_Customers": [
+      {
+        "db_id": "debit_card_specializing",
+        "table": "customers",
+        "score": 0.7681961232409744,
+        "score_prior": 0.5010313270356743,
+        "score_col_ev": 0.9463059873778411
+      },
+      {
+        "db_id": "financial",
+        "table": "client",
+        "score": 0.713119390424934,
+        "score_prior": 0.36333949499557355,
+        "score_col_ev": 0.9463059873778411
+      },
+      {
+        "db_id": "european_football_2",
+        "table": "Team",
+        "score": 0.7098212591383042,
+        "score_prior": 0.3550941667789989,
+        "score_col_ev": 0.9463059873778411
+      }
+    ]
+  },
+  "column_matches": {
+    "KAM_Customers.consumption": [
+      {
+        "db_id": "debit_card_specializing",
+        "table": "yearmonth",
+        "column": "Consumption",
+        "score": 0.9463059873778411
+      },
+      {
+        "db_id": "european_football_2",
+        "table": "Match",
+        "column": "possession",
+        "score": 0.42210456203547836
+      },
+      {
+        "db_id": "student_club",
+        "table": "budget",
+        "column": "spent",
+        "score": 0.3985871472270369
+      }
+    ],
+    "LAM_Customers.consumption": [
+      {
+        "db_id": "debit_card_specializing",
+        "table": "yearmonth",
+        "column": "Consumption",
+        "score": 0.9463059873778411
+      },
+      {
+        "db_id": "european_football_2",
+        "table": "Match",
+        "column": "possession",
+        "score": 0.42210456203547836
+      },
+      {
+        "db_id": "student_club",
+        "table": "budget",
+        "column": "spent",
+        "score": 0.3985871472270369
+      }
+    ],
+    "SME_Customers.consumption": [
+      {
+        "db_id": "debit_card_specializing",
+        "table": "yearmonth",
+        "column": "Consumption",
+        "score": 0.9463059873778411
+      },
+      {
+        "db_id": "european_football_2",
+        "table": "Match",
+        "column": "possession",
+        "score": 0.42210456203547836
+      },
+      {
+        "db_id": "student_club",
+        "table": "budget",
+        "column": "spent",
+        "score": 0.3985871472270369
+      }
+    ]
+  },
+  "relation_checks": [
+    {
+      "left": "SME_Customers.customer_id",
+      "right": "LAM_Customers.customer_id",
+      "exact_hit": false,
+      "cosine": 0.0,
+      "passed": false
+    },
+    {
+      "left": "LAM_Customers.customer_id",
+      "right": "KAM_Customers.customer_id",
+      "exact_hit": false,
+      "cosine": 0.0,
+      "passed": false
+    },
+    {
+      "left": "KAM_Customers.customer_id",
+      "right": "SME_Customers.customer_id",
+      "exact_hit": false,
+      "cosine": 0.0,
+      "passed": false
+    }
+  ],
+  "best_table_combinations": [
+    {
+      "mapping": {
+        "KAM_Customers": "customers",
+        "LAM_Customers": "customers",
+        "SME_Customers": "customers"
+      },
+      "score": 0.763932,
+      "mean_table_score": 0.763932,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "KAM_Customers": "customers",
+        "LAM_Customers": "client",
+        "SME_Customers": "customers"
+      },
+      "score": 0.751643,
+      "mean_table_score": 0.751643,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "KAM_Customers": "customers",
+        "LAM_Customers": "Team",
+        "SME_Customers": "customers"
+      },
+      "score": 0.749201,
+      "mean_table_score": 0.749201,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "KAM_Customers": "client",
+        "LAM_Customers": "customers",
+        "SME_Customers": "customers"
+      },
+      "score": 0.747688,
+      "mean_table_score": 0.747688,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "KAM_Customers": "customers",
+        "LAM_Customers": "customers",
+        "SME_Customers": "client"
+      },
+      "score": 0.745573,
+      "mean_table_score": 0.745573,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "KAM_Customers": "customers",
+        "LAM_Customers": "customers",
+        "SME_Customers": "Team"
+      },
+      "score": 0.744474,
+      "mean_table_score": 0.744474,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "KAM_Customers": "Team",
+        "LAM_Customers": "customers",
+        "SME_Customers": "customers"
+      },
+      "score": 0.743441,
+      "mean_table_score": 0.743441,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "KAM_Customers": "client",
+        "LAM_Customers": "client",
+        "SME_Customers": "customers"
+      },
+      "score": 0.735398,
+      "mean_table_score": 0.735398,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "KAM_Customers": "customers",
+        "LAM_Customers": "client",
+        "SME_Customers": "client"
+      },
+      "score": 0.733284,
+      "mean_table_score": 0.733284,
+      "mean_edge_score": 0.0
+    },
+    {
+      "mapping": {
+        "KAM_Customers": "client",
+        "LAM_Customers": "Team",
+        "SME_Customers": "customers"
+      },
+      "score": 0.732957,
+      "mean_table_score": 0.732957,
+      "mean_edge_score": 0.0
+    }
+  ]
+}

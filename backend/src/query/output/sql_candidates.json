@@ -1,0 +1,36 @@
+{
+  "intent": "Calculate the ratio of customers who pay in EUR to those who pay in CZK",
+  "candidates": [
+    {
+      "sql": "SELECT COUNT(*) FILTER (WHERE payment_currency = 'EUR')::float / NULLIF(COUNT(*) FILTER (WHERE payment_currency = 'CZK'), 0) AS ratio FROM customers",
+      "tables": [
+        "customers"
+      ],
+      "columns": [
+        "customers.payment_currency"
+      ],
+      "column_relationships": []
+    },
+    {
+      "sql": "SELECT (SELECT COUNT(*) FROM customers WHERE payment_currency = 'EUR')::float / NULLIF((SELECT COUNT(*) FROM customers WHERE payment_currency = 'CZK'), 0) AS ratio",
+      "tables": [
+        "customers"
+      ],
+      "columns": [
+        "customers.payment_currency"
+      ],
+      "column_relationships": []
+    },
+    {
+      "sql": "SELECT SUM(CASE WHEN payment_currency = 'EUR' THEN 1 ELSE 0 END)::float / NULLIF(SUM(CASE WHEN payment_currency = 'CZK' THEN 1 ELSE 0 END), 0) AS ratio FROM customers",
+      "tables": [
+        "customers"
+      ],
+      "columns": [
+        "customers.payment_currency"
+      ],
+      "column_relationships": []
+    }
+  ],
+  "notes": "Assumes 'payment_currency' is a column in the 'customers' table. No other tables are involved in the query."
+}
